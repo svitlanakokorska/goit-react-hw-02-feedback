@@ -3,6 +3,7 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
+import css from './App.module.css';
 
 export class App extends Component {
   	state = {
@@ -38,7 +39,7 @@ export class App extends Component {
 
 		const objKey = Object.keys(this.state);
 		return (
-			<>
+			<div className={css.container}>
 				<Section title="Please leave feedback">
 					<FeedbackOptions options={objKey} onLeaveFeedback={this.onLeaveFeedback} />
 				</Section>
@@ -47,7 +48,7 @@ export class App extends Component {
 					<Notification message="No feedback given" />
 				) : (
 					<Section title="Statistics">
-						<Statistics
+						<Statistics 
 							good={good}
 							neutral={neutral}
 							bad={bad}
@@ -56,7 +57,7 @@ export class App extends Component {
 						/>
 					</Section>
 				)}
-			</>
+			</div>
 		);
 	};
 
